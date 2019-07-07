@@ -1,0 +1,87 @@
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">DDocs</h5>
+  <a class="btn btn-primary" href="/create" style="padding:9px,width:2%">Create Docs</a>
+  <a class="btn btn-outline-primary" href="/signout">Sign Out</a>
+</div>
+<p id="useradd">{{id1}}</p>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-3">
+     Welcome {{name}}</h1>
+      <h1 class="display-5">My Documents</h1>
+  <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+</div>
+
+<div class="container">
+  {{#if x}}
+
+{{#each info}}
+  {{#with this}}
+  <div class="card-deck mb-1 text-center">
+    
+    
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{random}}</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title"><b>Hash:</b>{{hash}}</h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          
+          <li><b>Last Edited:</b>{{time}}</li>
+          <li><b>Size:</b>{{size}}</li>
+          <li><a href="/{{random}}/" class="btn btn-sm btn-danger">Check Versions</a></li>
+          <li>
+
+             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Share</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Share</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+
+  <div class="form-group">
+<form method="GET" action="/share">
+    <label for="text">Destination Ethereum address:</label>
+    <input type="text" class="form-control" id="ethaddress"  name="ethaddress"required>
+<input type="hidden" id="userid" name="hash"  value="{{hash}}">
+    <input type="hidden" id="fileid" value="{{random}}" name="fileid">
+    <input type="hidden" value={{size}} id="filesize" name="filesize">
+  </div>
+  <button type="submit" class="btn btn-danger" >Submit</button>
+ </form>
+
+ 
+
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+          </li>
+          
+        </ul>
+        <a  href="/{{random}}/{{hash}}"class="btn btn-lg btn-block btn-primary">Edit/view</a>
+      </div>
+
+    </div>
+   
+  </div>
+  {{/with}}
+  {{/each}}
+   {{/if}}
+  </div>
+ 
